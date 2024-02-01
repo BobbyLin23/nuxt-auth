@@ -9,7 +9,12 @@
 ## Todo
 
 - [x] Environment Setup
-- [ ] Home Page
-- [ ] Card Wrapper
-- [ ] Login Form
+- [x] Home Page
+- [x] Card Wrapper
+- [x] Login Form
 - [ ] Register Form
+- [ ] DB & Prisma Setup
+- [ ] Create User
+- [ ] Login & Middleware
+- [ ] Callbacks
+- [ ] OAuth
