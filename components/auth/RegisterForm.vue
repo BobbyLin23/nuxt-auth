@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useForm } from 'vee-validate'
-import { LoginSchema } from '~/schemas'
+import { RegisterSchema } from '~/schemas'
 
 const form = useForm({
-  validationSchema: LoginSchema,
+  validationSchema: RegisterSchema,
 })
 
 const success = ref<string | undefined>('')
@@ -16,13 +16,24 @@ const onSubmit = form.handleSubmit((values) => {
 
 <template>
   <CardWrapper
-    header-label="Welcome back"
-    back-button-label="Don't have an account?"
-    back-button-href="/auth/register"
+    header-label="Create an account"
+    back-button-label="Already have an account?"
+    back-button-href="/auth/login"
     show-social
   >
     <form class="space-y-6" @submit="onSubmit">
       <div class="space-y-4">
+        <FormField v-slot="{ componentField }" name="name">
+          <FormItem>
+            <FormLabel>
+              Name
+            </FormLabel>
+            <FormControl>
+              <Input placeholder="John Doe" v-bind="componentField" />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        </FormField>
         <FormField v-slot="{ componentField }" name="email">
           <FormItem>
             <FormLabel>
@@ -49,7 +60,7 @@ const onSubmit = form.handleSubmit((values) => {
       <FormSuccess :message="success" />
       <FormError :message="error" />
       <Button type="submit" class="w-full">
-        Login
+        Create an account
       </Button>
     </form>
   </CardWrapper>
