@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.11.2",
+    "@prisma/client": "5.9.1",
     "@radix-icons/vue": "^1.0.0",
     "@vee-validate/zod": "^4.12.5",
     "@vueuse/core": "^10.7.2",
@@ -28,6 +29,7 @@
     "@antfu/eslint-config": "^2.6.3",
     "eslint": "^8.56.0",
     "nuxt": "^3.9.3",
+    "prisma": "^5.9.1",
     "shadcn-nuxt": "^0.8.7",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"
