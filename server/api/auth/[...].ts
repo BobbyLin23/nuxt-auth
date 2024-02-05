@@ -36,6 +36,7 @@ export const authOptions: AuthConfig = {
         session.user.id = token.sub
 
       if (token.role && session.user)
+        // @ts-expect-error type error about auth.js
         session.user.role = token.role as UserRole
 
       return session
