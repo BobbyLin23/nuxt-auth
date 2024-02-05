@@ -16,5 +16,5 @@
 - [x] DB & Prisma Setup
 - [x] Create User
 - [x] Login & Middleware
-- [ ] Callbacks
+- [x] Callbacks
 - [ ] OAuth

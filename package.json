@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.25.1",
+    "@auth/prisma-adapter": "^1.2.1",
     "@hebilicious/authjs-nuxt": "^0.3.5",
     "@nuxtjs/tailwindcss": "^6.11.2",
     "@prisma/client": "5.9.1",
