@@ -1,16 +1,16 @@
 import { z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
 
-export const LoginSchema = toTypedSchema(
-  z.object({
-    email: z.string().email({
-      message: 'Email is required',
-    }),
-    password: z.string().min(1, {
-      message: 'Password is required',
-    }),
+export const loginSchema = z.object({
+  email: z.string().email({
+    message: 'Email is required',
   }),
-)
+  password: z.string().min(1, {
+    message: 'Password is required',
+  }),
+})
+
+export const LoginSchema = toTypedSchema(loginSchema)
 
 export const RegisterSchema = toTypedSchema(
   z.object({

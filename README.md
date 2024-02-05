@@ -13,8 +13,8 @@
 - [x] Card Wrapper
 - [x] Login Form
 - [x] Register Form
-- [ ] DB & Prisma Setup
-- [ ] Create User
-- [ ] Login & Middleware
+- [x] DB & Prisma Setup
+- [x] Create User
+- [x] Login & Middleware
 - [ ] Callbacks
 - [ ] OAuth

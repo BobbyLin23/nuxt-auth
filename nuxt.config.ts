@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -6,6 +8,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@vueuse/nuxt',
     'nuxt-icon',
+    '@hebilicious/authjs-nuxt',
   ],
   shadcn: {
     prefix: '',
@@ -19,4 +22,22 @@ export default defineNuxtConfig({
     },
     '~/components',
   ],
+  alias: {
+    cookie: 'cookie',
+  },
+  runtimeConfig: {
+    authJs: {
+      secret: process.env.NUXT_NEXTAUTH_SECRET,
+    },
+    github: {
+      clientId: process.env.NUXT_GITHUB_CLIENT_ID,
+      clientSecret: process.env.NUXT_GITHUB_CLIENT_SECRET,
+    },
+    public: {
+      authJs: {
+        baseUrl: process.env.NUXT_NEXTAUTH_URL,
+        verifyClientOnEveryRequest: true,
+      },
+    },
+  },
 })

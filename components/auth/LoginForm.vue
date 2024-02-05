@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import { useForm } from 'vee-validate'
+
 import { LoginSchema } from '~/schemas'
+
+const { signIn } = useAuth()
 
 const form = useForm({
   validationSchema: LoginSchema,
@@ -8,9 +11,26 @@ const form = useForm({
 
 const success = ref<string | undefined>('')
 const error = ref<string | undefined>('')
+const loading = ref(false)
 
-const onSubmit = form.handleSubmit((values) => {
-  console.log(values)
+const onSubmit = form.handleSubmit(async (values) => {
+  success.value = ''
+  error.value = ''
+  loading.value = true
+
+  try {
+    await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+      redirectTo: '/settings',
+    })
+  }
+  catch (e) {
+    console.error(e)
+  }
+  finally {
+    loading.value = false
+  }
 })
 </script>
 
@@ -29,7 +49,12 @@ const onSubmit = form.handleSubmit((values) => {
               Email
             </FormLabel>
             <FormControl>
-              <Input type="email" placeholder="john.doe@example.com" v-bind="componentField" />
+              <Input
+                type="email"
+                :disabled="loading"
+                placeholder="john.doe@example.com"
+                v-bind="componentField"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -40,7 +65,12 @@ const onSubmit = form.handleSubmit((values) => {
               Password
             </FormLabel>
             <FormControl>
-              <Input type="password" placeholder="******" v-bind="componentField" />
+              <Input
+                :disabled="loading"
+                type="password"
+                placeholder="******"
+                v-bind="componentField"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -48,7 +78,7 @@ const onSubmit = form.handleSubmit((values) => {
       </div>
       <FormSuccess :message="success" />
       <FormError :message="error" />
-      <Button type="submit" class="w-full">
+      <Button :disabled="loading" type="submit" class="w-full">
         Login
       </Button>
     </form>
