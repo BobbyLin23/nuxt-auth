@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 defineProps<{
   headerLabel: string
-  showSocial: boolean
+  showSocial?: boolean
   backButtonLabel: string
   backButtonHref: string
 }>()

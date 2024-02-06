@@ -33,6 +33,10 @@ export default defineNuxtConfig({
       clientId: process.env.NUXT_GITHUB_CLIENT_ID,
       clientSecret: process.env.NUXT_GITHUB_CLIENT_SECRET,
     },
+    google: {
+      clientId: process.env.NUXT_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
+    },
     public: {
       authJs: {
         baseUrl: process.env.NUXT_NEXTAUTH_URL,

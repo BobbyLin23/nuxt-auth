@@ -1,6 +1,12 @@
 <script lang="ts" setup>
+import { DEFAULT_LOGIN_REDIRECT } from '~/routes'
+
+const { signIn } = useAuth()
+
 function onClick(provider: 'github' | 'google') {
-  console.log(provider)
+  signIn(provider, {
+    callbackUrl: DEFAULT_LOGIN_REDIRECT,
+  })
 }
 </script>
 
