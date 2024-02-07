@@ -7,6 +7,7 @@
 - Auth.js
 - Prisma
 - Neon for PostgreSQL
+- Resend
 
 ## Todo
 
@@ -20,7 +21,7 @@
 - [x] Login & Middleware
 - [x] Callbacks
 - [x] OAuth
-- [ ] Sending Emails
+- [x] Sending Emails
 - [ ] Email Verification
 - [ ] Reset Password Email
 - [ ] Reset Password Form

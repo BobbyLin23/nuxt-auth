@@ -1,5 +1,8 @@
 import bcrypt from 'bcryptjs'
 
+import { generateVerificationToken } from '../utils/token'
+import { sendVerificationEmail } from '../utils/mail'
+
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
@@ -35,6 +38,9 @@ export default defineEventHandler(async (event) => {
         password: hashedPassword,
       },
     })
+
+    const verificationToken = await generateVerificationToken(email)
+    await sendVerificationEmail(verificationToken.email, verificationToken.token)
 
     return user
   }
