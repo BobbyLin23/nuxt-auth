@@ -88,6 +88,8 @@ export const authOptions: AuthConfig = {
 
           const isValid = await bcrypt.compare(password, user.password)
 
+          console.log(isValid)
+
           if (isValid)
             return user
         }

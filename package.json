@@ -29,6 +29,7 @@
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1",
     "vee-validate": "^4.12.5",
+    "vue3-spinner": "^0.0.17",
     "zod": "^3.22.4"
   },
   "devDependencies": {

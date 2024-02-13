@@ -81,6 +81,11 @@ const onSubmit = form.handleSubmit(async (values) => {
                   v-bind="componentField"
                 />
               </FormControl>
+              <Button size="sm" variant="link" as-child class="px-0 font-normal">
+                <NuxtLink href="/auth/reset">
+                  Forgot password?
+                </NuxtLink>
+              </Button>
               <FormMessage />
             </FormItem>
           </FormField>

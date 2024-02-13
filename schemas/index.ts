@@ -25,3 +25,19 @@ export const RegisterSchema = toTypedSchema(
     }),
   }),
 )
+
+export const NewPasswordSchema = toTypedSchema(
+  z.object({
+    password: z.string().min(6, {
+      message: 'Minimum of 6 characters required',
+    }),
+  }),
+)
+
+export const ResetSchema = toTypedSchema(
+  z.object({
+    email: z.string().email({
+      message: 'Email is required',
+    }),
+  }),
+)
